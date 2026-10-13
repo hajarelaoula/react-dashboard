@@ -1,0 +1,46 @@
+
+.parent{
+    min-height: 100vh;
+    width: 100%;
+    background-color:rgb(66, 147, 241);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+.card1{
+    width: 200px;
+    min-height: 150px;
+    padding: 20px;
+    background-color: rgba(57, 61, 188, 0.854);
+    color: white;
+    margin-top: 20px;
+
+}
+.card2{
+    width: 300px;
+    min-height: 350px;
+    padding: 20px;
+    background-color: rgba(57, 61, 188, 0.854);
+    color: white;
+    margin-left: 250px;
+    margin-top: 20px;
+}
+.card3{
+    width: 300px;
+    min-height: 300px;
+    padding: 20px;
+    background-color: rgba(57, 61, 188, 0.854);
+    color: white;
+    margin-top: 20px;
+}
+.card4{
+    width: 300px;
+    min-height: 300px;
+    padding: 20px;
+    background-color: rgba(57, 61, 188, 0.854);
+    color: white;
+    margin-left: 250px;
+    margin-top: 20px;
+}

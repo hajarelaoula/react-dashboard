@@ -1,0 +1,306 @@
+
+/* 1. إعدادات عامة */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fb;
+    color: #1e293b;
+}
+
+/* 2. تنظيم الصفحة كاملة */
+.parent {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-areas:
+        "header header"
+        "sidebar dashboard"
+        "clients clients";
+    gap: 20px;
+    padding: 20px;
+}
+
+/* 3. Header */
+.head {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 24px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #00000008;
+}
+
+.head h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #4f46e5;
+}
+
+.head input {
+    width: 300px;
+    max-width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.head input:focus {
+    border-color: #6366f1;
+}
+
+/* 4. Sidebar */
+.parent > .side {
+    grid-area: sidebar;
+    min-width: 0;
+}
+
+.side .side {
+    height: 100%;
+    padding: 20px 14px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.side ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    color: #64748b;
+}
+
+.side li:first-child {
+    background-color: #eef2ff;
+    color: #4f46e5;
+}
+
+.side li a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.side li svg {
+    flex-shrink: 0;
+}
+
+.side li:hover {
+    background-color: #f1f5f9;
+}
+
+.side button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4f46e5;
+    color: white;
+    cursor: pointer;
+}
+
+/* 5. Dashboard */
+.parent > .dash {
+    grid-area: dashboard;
+    min-width: 0;
+}
+
+.parent > .dash > .dash {
+    padding: 24px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #00000008;
+}
+
+.dash h1 {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.dash button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #eef2ff;
+    color: #4f46e5;
+    cursor: pointer;
+}
+
+/* 6. Cards */
+.parent > .dash > .dash > div:last-child {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.parent > .dash > .dash > div:last-child > div {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.parent > .dash > .dash > div:last-child svg {
+    color: #6366f1;
+    width: 26px;
+    height: 26px;
+}
+
+.parent > .dash > .dash > div:last-child p:first-of-type {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.parent > .dash > .dash > div:last-child p:last-child {
+    margin-bottom: 0;
+    font-size: 23px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* 7. Table ديال Clients */
+.parent > .client {
+    grid-area: clients;
+    min-width: 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.client table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.client th {
+    padding: 16px 12px;
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.client td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.client td img {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+/* 8. Tablet */
+@media (max-width: 900px) {
+    .parent {
+        grid-template-columns: 200px minmax(0, 1fr);
+        gap: 14px;
+        padding: 14px;
+    }
+
+    .parent > .dash > .dash {
+        padding: 16px;
+    }
+
+    .head input {
+        width: 240px;
+    }
+}
+
+/* 9. Téléphone */
+@media (max-width: 600px) {
+    .parent {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "dashboard"
+            "clients";
+        gap: 14px;
+        padding: 10px;
+    }
+
+    .head {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+
+    .head h1 {
+        font-size: 21px;
+    }
+
+    .head input {
+        width: 100%;
+    }
+
+    .side .side {
+        padding: 12px;
+    }
+
+    .side ul {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+    }
+
+    .side li {
+        gap: 8px;
+        padding: 10px 6px;
+        margin-bottom: 0;
+    }
+
+    .side li a {
+        font-size: 13px;
+    }
+
+    .parent > .dash > .dash {
+        padding: 16px;
+    }
+
+    .parent > .dash > .dash > div:last-child {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .dash h1 {
+        font-size: 22px;
+    }
+
+    .client {
+        padding: 12px !important;
+    }
+
+    .client table {
+        min-width: 550px;
+    }
+}
