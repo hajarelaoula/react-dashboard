@@ -34,6 +34,6 @@ const minde=(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <Component/>
+  <Ap/>
   </StrictMode>
 );
